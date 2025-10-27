@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/js/common.js"></script>
+  <script defer src="/js/admin.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="panel header">
+      <div><strong>Admin Dashboard</strong></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <span class="badge" id="role"></span>
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </div>
+
+    <div class="panel">
+      <h3>Assign Complaints</h3>
+      <div class="row">
+        <div class="col">
+          <label>Assign to worker</label>
+          <select id="workerSelect"><option value="">Loading workers...</option></select>
+        </div>
+      </div>
+      <hr />
+      <div id="complaints"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Analytics</h3>
+      <div id="analytics" class="row">
+        <div class="col card"><strong>Overview</strong><pre id="overview"></pre></div>
+        <div class="col card"><strong>By Category</strong><pre id="byCategory"></pre></div>
+        <div class="col card"><strong>Resolution Time</strong><pre id="resolution"></pre></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/js/common.js"></script>
+  <script defer src="/js/student.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="panel header">
+      <div><strong>Student Dashboard</strong></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <span class="badge" id="role"></span>
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </div>
+
+    <div class="row">
+      <section class="col panel">
+        <h3>Create Complaint</h3>
+        <form id="createForm" className="row">
+          <select id="category">
+            <option>electricity</option>
+            <option>cleanliness</option>
+            <option>food</option>
+            <option>plumber</option>
+            <option>carpenter</option>
+            <option>other</option>
+          </select>
+          <textarea id="description" rows="4" placeholder="Describe the issue"></textarea>
+          <input id="images" type="file" multiple accept="image/*" />
+          <button class="btn" type="submit">Submit</button>
+          <small class="muted">Up to 5 images (JPEG/PNG/WEBP, 5MB each).</small>
+          <small id="error" class="muted"></small>
+        </form>
+      </section>
+
+      <section class="col panel">
+        <h3>My Complaints</h3>
+        <div id="list"></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

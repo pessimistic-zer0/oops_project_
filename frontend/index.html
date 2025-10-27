@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hostel Complaints</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/js/common.js"></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = getUser();
+      if (user?.role === 'admin') location.href = '/admin.html';
+      else if (user?.role === 'worker') location.href = '/worker.html';
+      else if (user?.role === 'student') location.href = '/student.html';
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="panel" style="max-width: 640px; margin: 2rem auto;">
+      <h1>Hostel Complaints</h1>
+      <p class="muted">Simple interface to file and manage hostel complaints.</p>
+      <div class="row">
+        <a class="btn" href="/login.html">Login</a>
+        <a class="btn secondary" href="/register.html">Register (Student)</a>
+      </div>
+      <hr />
+      <small class="muted">Backend: /api/* | Static served by Express</small>
+    </div>
+  </div>
+</body>
+</html>

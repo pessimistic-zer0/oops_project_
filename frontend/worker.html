@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Worker</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/js/common.js"></script>
+  <script defer src="/js/worker.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="panel header">
+      <div><strong>Worker Dashboard</strong></div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <span class="badge" id="role"></span>
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </div>
+
+    <div class="panel">
+      <h3>Assigned Complaints</h3>
+      <div id="complaints"></div>
+    </div>
+  </div>
+</body>
+</html>
