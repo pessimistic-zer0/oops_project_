@@ -3,7 +3,7 @@ import app from './app.js';
 import { connectDB } from './utils/db.js';
 
 const PORT = process.env.PORT || 4000;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || 8000; 
 
 (async () => {
   try {
