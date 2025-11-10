@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { connectDB, disconnectDB } from '../utils/db.js';
 import User from '../models/User.js';
 
