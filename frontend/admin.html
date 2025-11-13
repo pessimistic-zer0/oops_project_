@@ -19,6 +19,45 @@
       </nav>
     </div>
 
+    <!-- New: Create User (Admin/Worker) -->
+    <div class="panel">
+      <h3>Create User (Admin or Worker)</h3>
+      <form id="createUserForm" class="row" style="gap:12px; align-items:flex-end;">
+        <div class="col">
+          <label>Name</label>
+          <input id="cuName" type="text" placeholder="Full name" required />
+        </div>
+        <div class="col">
+          <label>Email</label>
+          <input id="cuEmail" type="email" placeholder="email@example.com" required />
+        </div>
+        <div class="col">
+          <label>Password</label>
+          <input id="cuPassword" type="password" placeholder="Password" required />
+        </div>
+        <div class="col">
+          <label>Role</label>
+          <select id="cuRole" required>
+            <option value="worker">Worker</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Phone (optional)</label>
+          <input id="cuPhone" type="tel" placeholder="Phone" />
+        </div>
+        <div class="col">
+          <label>Room No. (optional)</label>
+          <input id="cuRoomNumber" type="text" placeholder="Room number" />
+        </div>
+        <div class="col">
+          <button class="btn" type="submit">Create</button>
+        </div>
+      </form>
+      <div id="cuSuccess" class="muted" style="color:green; margin-top:6px;"></div>
+      <div id="cuError" class="muted" style="color:red; margin-top:6px;"></div>
+    </div>
+
     <div class="panel">
       <h3>Assign Complaints</h3>
       <div class="row">

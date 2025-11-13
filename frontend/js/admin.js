@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const workerSelect = document.getElementById('workerSelect');
   const complaintsEl = document.getElementById('complaints');
 
+  // New: Create User form elements
+  const createUserForm = document.getElementById('createUserForm');
+  const cuName = document.getElementById('cuName');
+  const cuEmail = document.getElementById('cuEmail');
+  const cuPassword = document.getElementById('cuPassword');
+  const cuRole = document.getElementById('cuRole');
+  const cuPhone = document.getElementById('cuPhone');
+  const cuRoomNumber = document.getElementById('cuRoomNumber');
+  const cuError = document.getElementById('cuError');
+  const cuSuccess = document.getElementById('cuSuccess');
+
   async function loadWorkers() {
     const data = await api('/api/admin/users?role=worker');
     workerSelect.innerHTML = '<option value="">Select worker...</option>';
@@ -69,6 +80,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('overview').textContent = JSON.stringify(overview, null, 2);
     document.getElementById('byCategory').textContent = JSON.stringify(byCat, null, 2);
     document.getElementById('resolution').textContent = JSON.stringify(resolution, null, 2);
+  }
+
+  // New: handle Create User form submit
+  if (createUserForm) {
+    createUserForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      cuError.textContent = '';
+      cuSuccess.textContent = '';
+
+      const payload = {
+        name: cuName.value.trim(),
+        email: cuEmail.value.trim(),
+        password: cuPassword.value,
+        role: cuRole.value,
+        phone: cuPhone.value.trim(),
+        roomNumber: cuRoomNumber.value.trim()
+      };
+
+      if (!payload.name || !payload.email || !payload.password || !payload.role) {
+        cuError.textContent = 'Please fill in name, email, password, and role.';
+        return;
+      }
+
+      try {
+        const created = await api('/api/admin/users', {
+          method: 'POST',
+          body: payload
+        });
+        cuSuccess.textContent = `Created ${created.role} "${created.name}" (${created.email}).`;
+        createUserForm.reset();
+        // So new workers appear in the dropdown
+        await loadWorkers();
+      } catch (err) {
+        cuError.textContent = err.message || 'Creation failed';
+      }
+    });
   }
 
   (async () => {
